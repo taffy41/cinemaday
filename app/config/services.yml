@@ -1,0 +1,21 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+    cineworld:
+        class: AppBundle\Classes\Cineworld
+        arguments:
+            - '@cineworldClient'
+            - '@doctrine'
+
+    cineworldClient:
+        class: AppBundle\Classes\CineworldClient
+        arguments:
+            - 'https://www.cineworld.co.uk'
+            - 'qUnEyRXt'
